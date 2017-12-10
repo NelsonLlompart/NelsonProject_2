@@ -8,7 +8,7 @@
 .actor  { position: absolute;  }
 .coin   { background: gold; }
 .player { background: Orange; }
-
+.Teleporter {background: green; }
 .game {
   overflow: hidden;
   max-width: 600px;

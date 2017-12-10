@@ -1,9 +1,10 @@
 // Map each class of actor to a character
 var actorChars = {
-  "@": Player,
+	"@": Player,
   "o": Coin, // A coin will wobble up and down
   "y": Floater,
-  "=": Lava, "|": Lava, "v": Lava 
+  "=": Lava, "|": Lava, "v": Lava,
+	"m": Teleporter
   
 };
 
@@ -42,6 +43,8 @@ function Level(plan) {
         fieldType = "lava";
 		else if(ch == "y")
 			fieldType = "floater";
+		else if(ch == "m")
+			fieldType = "Teleporter";
 
       // "Push" the fieldType, which is a string, onto the gridLine array (at the end).
       gridLine.push(fieldType);
@@ -118,6 +121,14 @@ function elt(name, className) {
   if (className) elt.className = className;
   return elt;
 }
+Teleporter.prototype.type = "Teleporter"
+
+function elt(name, className) {
+  var elt = document.createElement(name);
+  if (className) elt.className = className;
+  return elt;
+}
+
 
 // Main display class. We keep track of the scroll window using it.
 function DOMDisplay(parent, level) {
